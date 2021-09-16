@@ -1,0 +1,63 @@
+{
+  "name": "beautyshop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.1.5",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "echarts": "^5.2.0",
+    "element-ui": "^2.15.5",
+    "fibers": "^5.0.0",
+    "js-cookie": "^3.0.0",
+    "lodash": "^4.17.21",
+    "mavon-editor": "^2.9.1",
+    "node-sass": "^4.14.1",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "qs": "^6.10.1",
+    "vue": "^2.6.11",
+    "vue-axios": "^3.2.5",
+    "vue-cropper": "^0.5.6",
+    "vue-router": "^3.2.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.2.1",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/prettier"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
