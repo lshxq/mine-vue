@@ -19,6 +19,11 @@ const routes = [
     name: "home",
     component: () => import("../views/home-index.vue"),
   },
+  {
+    path: "/ant",
+    name: "ant",
+    component: () => import("../views/ant/ant-index.vue"),
+  },
 ];
 
 export default routes;
