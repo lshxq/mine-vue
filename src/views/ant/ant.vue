@@ -5,7 +5,7 @@
 <script>
 import PosMixin from "./pos-mixin.js";
 import utils from "./ant-utils.js";
-
+const ANT_MAX_HUNGRY = 3;
 export default {
   props: {
     data: Object,
@@ -16,6 +16,8 @@ export default {
     const { pos } = this.data;
     return {
       pos,
+      hungry: ANT_MAX_HUNGRY,
+      lastBite: 0,
     };
   },
   computed: {
@@ -40,7 +42,44 @@ export default {
           };
         })
       );
-      this.pos = utils.walk(pos, nearest.cake.pos);
+      if (that.hungry > 0) {
+        if (
+          10 >
+          utils.distance(
+            pos.left,
+            pos.top,
+            nearest.cake.pos.left,
+            nearest.cake.pos.top
+          )
+        ) {
+          const now = new Date().getTime();
+          if (now - that.lastBite > 100) {
+            that.hungry = that.hungry - 1;
+            this.$emit('bite', nearest.cake)
+          }
+          that.lastBite = now;
+        } else {
+          that.pos = utils.walk(pos, nearest.cake.pos, 5);
+        }
+      } else {
+        if (
+          10 >
+          utils.distance(
+            pos.left,
+            pos.top,
+            that.data.home.pos.left,
+            that.data.home.pos.top
+          )
+        ) {
+          const now = new Date().getTime();
+          if (now - that.lastBite > 100) {
+            that.hungry = ANT_MAX_HUNGRY;
+          }
+          that.lastBite = now;
+        } else {
+          that.pos = utils.walk(pos, that.data.home.pos, 3);
+        }
+      }
     }, 100);
   },
 };

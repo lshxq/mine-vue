@@ -15,6 +15,12 @@ const linearNumber = (
   return (value / (end2 - start2)) * (end1 - start1) + start1;
 };
 
+const distance = (x1, y1, x2, y2) => {
+  const a = Math.abs(x1 - x2);
+  const b = Math.abs(y1 - y2);
+  return Math.sqrt(a * a + b * b);
+};
+
 const nearest = (pos, poss) => {
   const { left, top } = pos;
   let nearest = null;
@@ -64,4 +70,5 @@ export default {
   linearNumber,
   nearest,
   walk,
+  distance,
 };
